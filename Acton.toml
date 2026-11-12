@@ -1,0 +1,52 @@
+[package]
+name = "CYBER NFT Marketplace"
+description = "TON NFT marketplace with escrow sales and 1% marketplace fee"
+version = "0.1.0"
+license = "MIT"
+
+[toolchain]
+acton = "1.2.1"
+
+[contracts.NftCollection]
+display-name = "NftCollection"
+src = "contracts/src/NftCollection.tolk"
+depends = []
+
+[contracts.NftItem]
+display-name = "NftItem"
+src = "contracts/src/NftItem.tolk"
+depends = []
+
+[test]
+
+[fmt]
+width = 100
+ignore = []
+
+[scripts]
+deploy-emulation = "acton script contracts/scripts/deploy-collection.tolk"
+deploy-testnet = "acton script contracts/scripts/deploy-collection.tolk --net testnet"
+nft-change-admin = "acton script contracts/scripts/change-admin.tolk"
+nft-deploy-batch = "acton script contracts/scripts/deploy-batch.tolk"
+nft-deploy-item = "acton script contracts/scripts/deploy-item.tolk"
+nft-transfer-item = "acton script contracts/scripts/transfer-item.tolk"
+
+[import-mappings]
+acton = ".acton"
+contracts = "contracts/src"
+gen = "gen"
+tests = "contracts/tests"
+wrappers = "contracts/wrappers"
+
+# Check full Acton.toml reference and all available keys:
+# https://ton-blockchain.github.io/acton/docs/acton-toml
+
+[contracts.Claim]
+display-name = "Claim"
+src = "contracts/src/Claim.tolk"
+depends = []
+
+[contracts.SaleRejector]
+display-name = "SaleRejector"
+src = "contracts/src/SaleRejector.tolk"
+depends = []
